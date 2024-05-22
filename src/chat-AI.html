@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarosceu.AI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/contrib/auto-render.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body);
+      });
+    </script>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="all" />
+  </head>
+  <body>
+    <header>
+      <div class="title-header">
+        <img src="logo.png" alt="logo.png" />
+        <h2>Tarosceu.AI</h2>
+        <p>fromseccacode</p>
+      </div>
+      <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+
+        <i class="fas fa-times" style="display: none"></i>
+      </div>
+    </header>
+    <div class="sidebar" id="sidebar" style="padding: 10px">
+      <div class="title-header">
+        <img src="logo.png" alt="logo.png" style="width: 40px" />
+        <h3>Tarosceu.AI</h3>
+      </div>
+      <div class="Option-Menu">
+        <a href="help-center.html">Help Center</a>
+        <a href="terms-of-us.html">Term of Use</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="license.html">License</a>
+      </div>
+    </div>
+
+    <section class="chatbox" id="chatbox"></section>
+    <div class="input-container">
+      <input type="text" id="userInput" placeholder="Tulis pesan..." />
+      <input type="submit" value="Tanya" onclick="sendMessage()" />
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById("sidebar");
+        var hamburgerMenu = document.getElementById("hamburgerMenu");
+        var hamburgerIcon = hamburgerMenu.querySelector(".fa-bars");
+        var closeIcon = hamburgerMenu.querySelector(".fa-times");
+
+        if (sidebar.style.right === "0px") {
+          sidebar.style.right = "-750px";
+          hamburgerIcon.style.display = "block";
+          closeIcon.style.display = "none";
+        } else {
+          sidebar.style.right = "0px";
+          hamburgerIcon.style.display = "none";
+          closeIcon.style.display = "block";
+        }
+      }
+
+      document.body.addEventListener("click", function (event) {
+        var sidebar = document.getElementById("sidebar");
+        var hamburgerMenu = document.getElementById("hamburgerMenu");
+        var hamburgerIcon = hamburgerMenu.querySelector(".fa-bars");
+        var closeIcon = hamburgerMenu.querySelector(".fa-times");
+
+        if (
+          !sidebar.contains(event.target) &&
+          event.target !== hamburgerMenu &&
+          sidebar.style.right === "0px"
+        ) {
+          sidebar.style.right = "-750px";
+          hamburgerIcon.style.display = "block";
+          closeIcon.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
